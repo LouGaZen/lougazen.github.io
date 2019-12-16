@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>打造Mac下舒适的终端 | Apocalypse</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="序拖延症拖了一年终于要开始打造自己的博客了(´ཀ`」 ∠)，先拿最近捣鼓的zsh开刀吧 准备brew、iTerm2和Oh-My-Zsh 使用brew安装nerd-font字体script12brew tap caskroom/fontsbrew cask install font-hack-nerd-font 配置iTerm2针对非ASCII码字符的字体">
+<meta property="og:type" content="article">
+<meta property="og:title" content="打造Mac下舒适的终端">
+<meta property="og:url" content="http://lougazen.github.io/2019/12/12/打造Mac下舒适的终端/index.html">
+<meta property="og:site_name" content="Apocalypse">
+<meta property="og:description" content="序拖延症拖了一年终于要开始打造自己的博客了(´ཀ`」 ∠)，先拿最近捣鼓的zsh开刀吧 准备brew、iTerm2和Oh-My-Zsh 使用brew安装nerd-font字体script12brew tap caskroom/fontsbrew cask install font-hack-nerd-font 配置iTerm2针对非ASCII码字符的字体">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.loli.net/2019/12/16/moWqMef9wHILBYU.png">
+<meta property="og:image" content="https://i.loli.net/2019/12/16/NUrfXGsnjuo8Zxv.gif">
+<meta property="og:image" content="https://i.loli.net/2019/12/16/pCnDS4baKfAdetZ.png">
+<meta property="og:image" content="https://i.loli.net/2019/12/16/6xi9PybSLRKcJz3.png">
+<meta property="og:image" content="https://i.loli.net/2019/12/16/CynTDgk7PRGXh8f.png">
+<meta property="og:image" content="https://i.loli.net/2019/12/16/qrk1oOXgwPUsd4p.png">
+<meta property="og:image" content="https://i.loli.net/2019/12/16/85scRPWveNCi4kM.png">
+<meta property="og:image" content="https://i.loli.net/2019/12/16/gwlevVHQUCZAFr6.png">
+<meta property="og:updated_time" content="2019-12-16T15:28:43.072Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="打造Mac下舒适的终端">
+<meta name="twitter:description" content="序拖延症拖了一年终于要开始打造自己的博客了(´ཀ`」 ∠)，先拿最近捣鼓的zsh开刀吧 准备brew、iTerm2和Oh-My-Zsh 使用brew安装nerd-font字体script12brew tap caskroom/fontsbrew cask install font-hack-nerd-font 配置iTerm2针对非ASCII码字符的字体">
+<meta name="twitter:image" content="https://i.loli.net/2019/12/16/moWqMef9wHILBYU.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Apocalypse" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/fluidicon.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/10402620.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">LouGaZen</h5>
+          <a href="mailto:null" class="mail">
+        </a></hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/LouGaZen" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">打造Mac下舒适的终端</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">打造Mac下舒适的终端</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-12-12T15:54:46.000Z" itemprop="datePublished" class="page-time">
+  2019-12-12
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#序"><span class="post-toc-number">1.</span> <span class="post-toc-text">序</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#准备"><span class="post-toc-number">2.</span> <span class="post-toc-text">准备</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#配置zsh主题"><span class="post-toc-number">3.</span> <span class="post-toc-text">配置zsh主题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#配置iTerm2配色"><span class="post-toc-number">4.</span> <span class="post-toc-text">配置iTerm2配色</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装zsh插件"><span class="post-toc-number">5.</span> <span class="post-toc-text">安装zsh插件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#git"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">git</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#zsh-syntax-highlighting"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">zsh-syntax-highlighting</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#zsh-autosuggestions"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">zsh-autosuggestions</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#command-not-found"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">command-not-found</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#zsh-reload"><span class="post-toc-number">5.5.</span> <span class="post-toc-text">zsh_reload</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#git-open"><span class="post-toc-number">5.6.</span> <span class="post-toc-text">git-open</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#z"><span class="post-toc-number">5.7.</span> <span class="post-toc-text">z</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#safe-paste"><span class="post-toc-number">5.8.</span> <span class="post-toc-text">safe-paste</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#sudo"><span class="post-toc-number">5.9.</span> <span class="post-toc-text">sudo</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#extract"><span class="post-toc-number">5.10.</span> <span class="post-toc-text">extract</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#其他非zsh的插件"><span class="post-toc-number">6.</span> <span class="post-toc-text">其他非zsh的插件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#colorls"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">colorls</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#archey"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">archey</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#后记（挖坑）"><span class="post-toc-number">7.</span> <span class="post-toc-text">后记（挖坑）</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#鸣谢"><span class="post-toc-number">8.</span> <span class="post-toc-text">鸣谢</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-打造Mac下舒适的终端" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">打造Mac下舒适的终端</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-12-12 23:54:46" datetime="2019-12-12T15:54:46.000Z" itemprop="datePublished">2019-12-12</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>拖延症拖了一年终于要开始打造自己的博客了<em>(´ཀ`」 ∠)</em>，先拿最近捣鼓的zsh开刀吧</p>
+<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><p><a href="https://brew.sh/index_zh-cn" target="_blank" rel="noopener">brew</a>、iTerm2和<a href="https://ohmyz.sh/" target="_blank" rel="noopener">Oh-My-Zsh</a></p>
+<p>使用brew安装nerd-font字体<br><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew tap caskroom/fonts</span><br><span class="line">brew cask install font-hack-nerd-font</span><br></pre></td></tr></table></figure></p>
+<p>配置iTerm2针对非ASCII码字符的字体<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/12/16/moWqMef9wHILBYU.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h1 id="配置zsh主题"><a href="#配置zsh主题" class="headerlink" title="配置zsh主题"></a>配置zsh主题</h1><p>zsh的配置文件存放在<code>~/.zshrc</code>下，看到<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZSH_THEME="robbyrussell"</span><br></pre></td></tr></table></figure></p>
+<p>这一行，这里就是配置主题的地方，默认自带一堆主题放在<code>~/.oh-my-zsh/theme</code>目录下，也可以上<a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes" target="_blank" rel="noopener">github</a>上查看各个主题的效果</p>
+<p>当然个人感觉最叼的还是这个<a href="https://github.com/Powerlevel9k/powerlevel9k" target="_blank" rel="noopener">powerlevel9k</a>主题<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/12/16/NUrfXGsnjuo8Zxv.gif" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>首先把主题安装到本地<br><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k</span><br></pre></td></tr></table></figure></p>
+<p>修改<code>~/.zshrc</code>的主题配置<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZSH_THEME="powerlevel9k/powerlevel9k"</span><br></pre></td></tr></table></figure></p>
+<p>重新加载zsh使配置生效<br><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.zshrc</span><br></pre></td></tr></table></figure></p>
+<p>然后提示就变样了（先忽略苹果logo的信息，后面会提到）<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/12/16/pCnDS4baKfAdetZ.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>根据自己的喜好配置一下（注意需要加在ZSH_THEME的前面，不然前面说的nerd-font字体会加载不出来），详细可进入p9k的github阅读原文档<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">POWERLEVEL9K_MODE="nerdfont-complete"</span><br><span class="line">POWERLEVEL9K<span class="emphasis">_LEFT_</span>PROMPT<span class="emphasis">_ELEMENTS=(os_</span>icon root<span class="emphasis">_indicator context ssh dir_</span>writable dir vcs status)</span><br><span class="line">POWERLEVEL9K<span class="emphasis">_RIGHT_</span>PROMPT_ELEMENTS=()</span><br><span class="line">POWERLEVEL9K<span class="emphasis">_PROMPT_</span>ADD_NEWLINE=true</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><code>POWERLEVEL9K_MODE</code>：设置 powerlevel9k 的字体是我们前面下载的</li>
+<li><code>POWERLEVEL9K_LEFT_PROMPT_ELEMENTS</code>：将前面居右的几个元素放在左边了</li>
+<li><code>POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS</code>：右边不放置任何元素（如果你喜欢在右边也可以加）</li>
+<li><code>POWERLEVEL9K_PROMPT_ADD_NEWLINE</code>：在每个提示之前添加换行符</li>
+</ul>
+<p>修改完的效果应该是这样子的<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/12/16/6xi9PybSLRKcJz3.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h1 id="配置iTerm2配色"><a href="#配置iTerm2配色" class="headerlink" title="配置iTerm2配色"></a>配置iTerm2配色</h1><p>iTerm2默认黑色还是太丑了，上<a href="https://github.com/mbadolato/iTerm2-Color-Schemes" target="_blank" rel="noopener">这里</a>挑了个Ubuntu主题</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/12/16/CynTDgk7PRGXh8f.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>啊舒服了٩(๑´0`๑)۶</p>
+<h1 id="安装zsh插件"><a href="#安装zsh插件" class="headerlink" title="安装zsh插件"></a>安装zsh插件</h1><p>以上那些都是过眼隐的，真正让使用者感到舒服的地方来了</p>
+<p>先列一下我的插件列表</p>
+<ul>
+<li>git</li>
+<li>zsh-syntax-highlighting</li>
+<li>zsh-autosuggestions</li>
+<li>command-not-found</li>
+<li>zsh_reload</li>
+<li>git-open</li>
+<li>z</li>
+<li>safe-paste</li>
+<li>sudo</li>
+<li>extract</li>
+</ul>
+<h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><p>默认自带，不说</p>
+<h2 id="zsh-syntax-highlighting"><a href="#zsh-syntax-highlighting" class="headerlink" title="zsh-syntax-highlighting"></a>zsh-syntax-highlighting</h2><p>用于显示你当前输入的命令是否正确<br><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install zsh-syntax-highlighting</span><br></pre></td></tr></table></figure></p>
+<p>正常来讲可以直接把<code>zsh-syntax-highlighting</code>加到配置文件中即可启用，如果出现<code>plugin not found</code>的情况则改用如下方式进行配置<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh</span><br></pre></td></tr></table></figure></p>
+<h2 id="zsh-autosuggestions"><a href="#zsh-autosuggestions" class="headerlink" title="zsh-autosuggestions"></a>zsh-autosuggestions</h2><p>历史记录提示，按➡️方向键自动补全<br><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install zsh-autosuggestions</span><br></pre></td></tr></table></figure></p>
+<p>跟上一个配置同理，如果出现<code>plugin not found</code>的情况则改用如下方式进行配置<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh</span><br></pre></td></tr></table></figure></p>
+<h2 id="command-not-found"><a href="#command-not-found" class="headerlink" title="command-not-found"></a>command-not-found</h2><p>对于command not found的结果会提示一个相似的命令（多出现于拼写错误）</p>
+<h2 id="zsh-reload"><a href="#zsh-reload" class="headerlink" title="zsh_reload"></a>zsh_reload</h2><p>直接执行<code>src</code>即可完成<code>source ~/.zshrc</code>操作</p>
+<h2 id="git-open"><a href="#git-open" class="headerlink" title="git-open"></a>git-open</h2><p>在终端里打开当前项目的远程仓库地址<br><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/paulirish/git-open.git $ZSH_CUSTOM/plugins/git-open</span><br></pre></td></tr></table></figure></p>
+<h2 id="z"><a href="#z" class="headerlink" title="z"></a>z</h2><p>zsh自带的autojump</p>
+<h2 id="safe-paste"><a href="#safe-paste" class="headerlink" title="safe-paste"></a>safe-paste</h2><p>顾名思义，对于有换行符的内容不会立马执行</p>
+<h2 id="sudo"><a href="#sudo" class="headerlink" title="sudo"></a>sudo</h2><p>双击 Esc，zsh 会把上一条命令加上 sudo 给你</p>
+<h2 id="extract"><a href="#extract" class="headerlink" title="extract"></a>extract</h2><p>万能解压命令</p>
+<h1 id="其他非zsh的插件"><a href="#其他非zsh的插件" class="headerlink" title="其他非zsh的插件"></a>其他非zsh的插件</h1><h2 id="colorls"><a href="#colorls" class="headerlink" title="colorls"></a>colorls</h2><p>列出文件时带图标<br><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install colorls</span><br></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/12/16/qrk1oOXgwPUsd4p.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>然后加个alias到配置文件<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias cll='colorls -l --gs'</span><br></pre></td></tr></table></figure></p>
+<p>以后输入<code>cll</code>即可</p>
+<h2 id="archey"><a href="#archey" class="headerlink" title="archey"></a>archey</h2><p>显示系统信息<br><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install archey</span><br></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/12/16/85scRPWveNCi4kM.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>然后把<code>archey</code>这个命令加到配置文件即可每次打开都显示系统信息</p>
+<p>顺带提一下archey那种图案的生成方式，有两个小工具可以做到，一个是figlet，另一个是toilet<br><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install figlet</span><br><span class="line">brew install toilet</span><br></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/12/16/gwlevVHQUCZAFr6.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h1 id="后记（挖坑）"><a href="#后记（挖坑）" class="headerlink" title="后记（挖坑）"></a>后记（挖坑）</h1><p>这一套下来在iTerm下面使用简直是强无敌，但是考虑还有系统自带的终端及idea和vscode的终端都要配置一遍是在是烦躁，在寻找有没有办法针对不同的shell加载不同的配置文件</p>
+<h1 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h1><blockquote>
+<p><a href="https://blog.biezhi.me/2018/11/build-a-beautiful-mac-terminal-environment.html" target="_blank" rel="noopener">打造 Mac 下高颜值好用的终端环境</a><br><a href="https://github.com/ohmyzsh/ohmyzsh" target="_blank" rel="noopener">oh-my-zsh</a><br><a href="https://github.com/Powerlevel9k/powerlevel9k" target="_blank" rel="noopener">powerlevel9k</a><br><a href="https://github.com/mbadolato/iTerm2-Color-Schemes" target="_blank" rel="noopener">iTerm2-Color-Schemes</a></p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2019-12-16T15:28:43.072Z" itemprop="dateUpdated">2019-12-16 23:28:43</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/12/12/打造Mac下舒适的终端/" target="_blank" rel="external">http://lougazen.github.io/2019/12/12/打造Mac下舒适的终端/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://lougazen.github.io">
+            <img src="/img/10402620.jpg" alt="LouGaZen">
+            LouGaZen
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/06/03/hello-world/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Hello World</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>LouGaZen &copy; 2016 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
