@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>通过brew cask按照指定版本的应用 | Apocalypse</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="序最近在全新安装DataGrip(2019.3)的时候发现使用以前的洗白工具无法输入序列号，但是从2019.2版本升上来的idea和webstorm却能正常使用。作为一名idea系列的重度使（bai）用（piao）者实在是难受，首先想到的办法就是安装一个旧版本的DataGrip。但是Cask却不像Formulae通过一个@就能指定版本号，需要另辟蹊径。 准备工作先把DataGrip完全卸载">
+<meta property="og:type" content="article">
+<meta property="og:title" content="通过brew cask按照指定版本的应用">
+<meta property="og:url" content="http://lougazen.github.io/2019/12/17/通过brew-cask按照指定版本的应用/index.html">
+<meta property="og:site_name" content="Apocalypse">
+<meta property="og:description" content="序最近在全新安装DataGrip(2019.3)的时候发现使用以前的洗白工具无法输入序列号，但是从2019.2版本升上来的idea和webstorm却能正常使用。作为一名idea系列的重度使（bai）用（piao）者实在是难受，首先想到的办法就是安装一个旧版本的DataGrip。但是Cask却不像Formulae通过一个@就能指定版本号，需要另辟蹊径。 准备工作先把DataGrip完全卸载">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.loli.net/2019/12/17/cEWU3ZDBgvsYKHt.png">
+<meta property="og:image" content="https://i.loli.net/2019/12/17/QNCOB5ZTRifz3Mu.png">
+<meta property="og:image" content="https://i.loli.net/2019/12/17/gVTJ1B6ewIvcLus.png">
+<meta property="og:image" content="https://i.loli.net/2019/12/17/UnozwtJDTMFXYh9.png">
+<meta property="og:image" content="https://i.loli.net/2019/12/17/r569XZWOVjmcEwo.png">
+<meta property="og:image" content="https://i.loli.net/2019/12/17/tLVYFqg8nT2bKGz.png">
+<meta property="og:image" content="https://i.loli.net/2019/12/17/oaHz1MYjsRQ9wp6.png">
+<meta property="og:updated_time" content="2019-12-17T16:07:41.423Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="通过brew cask按照指定版本的应用">
+<meta name="twitter:description" content="序最近在全新安装DataGrip(2019.3)的时候发现使用以前的洗白工具无法输入序列号，但是从2019.2版本升上来的idea和webstorm却能正常使用。作为一名idea系列的重度使（bai）用（piao）者实在是难受，首先想到的办法就是安装一个旧版本的DataGrip。但是Cask却不像Formulae通过一个@就能指定版本号，需要另辟蹊径。 准备工作先把DataGrip完全卸载">
+<meta name="twitter:image" content="https://i.loli.net/2019/12/17/cEWU3ZDBgvsYKHt.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Apocalypse" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/fluidicon.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/10402620.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">LouGaZen</h5>
+          <a href="mailto:null" class="mail">
+        </a></hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/LouGaZen" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">通过brew cask按照指定版本的应用</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">通过brew cask按照指定版本的应用</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-12-17T14:58:25.000Z" itemprop="datePublished" class="page-time">
+  2019-12-17
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#序"><span class="post-toc-number">1.</span> <span class="post-toc-text">序</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#准备工作"><span class="post-toc-number">2.</span> <span class="post-toc-text">准备工作</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#寻找旧版应用的版本号及sha256信息"><span class="post-toc-number">3.</span> <span class="post-toc-text">寻找旧版应用的版本号及sha256信息</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#替换目标软件的Cask下载源地址"><span class="post-toc-number">4.</span> <span class="post-toc-text">替换目标软件的Cask下载源地址</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#执行安装命令"><span class="post-toc-number">5.</span> <span class="post-toc-text">执行安装命令</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#鸣谢"><span class="post-toc-number">6.</span> <span class="post-toc-text">鸣谢</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-通过brew-cask按照指定版本的应用" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">通过brew cask按照指定版本的应用</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-12-17 22:58:25" datetime="2019-12-17T14:58:25.000Z" itemprop="datePublished">2019-12-17</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>最近在全新安装DataGrip(2019.3)的时候发现使用以前的洗白工具无法输入序列号，但是从2019.2版本升上来的idea和webstorm却能正常使用。作为一名idea系列的重度使（bai）用（piao）者实在是难受，首先想到的办法就是安装一个旧版本的DataGrip。但是Cask却不像Formulae通过一个@就能指定版本号，需要另辟蹊径。</p>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>先把DataGrip完全卸载<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/12/17/cEWU3ZDBgvsYKHt.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>然后执行一波<code>brew update</code>避免待会配置文件被覆盖</p>
+<h1 id="寻找旧版应用的版本号及sha256信息"><a href="#寻找旧版应用的版本号及sha256信息" class="headerlink" title="寻找旧版应用的版本号及sha256信息"></a>寻找旧版应用的版本号及sha256信息</h1><p>对于大多数开发工具来说官网都会给出旧版的软件版本号或者下载地址等其他信息，如果有sha256值提供就在好不过了，可惜<a href="https://www.jetbrains.com/datagrip/download/other.html" target="_blank" rel="noopener">DataGrip</a>没有给出，只好下载回来自己算sha256</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/12/17/QNCOB5ZTRifz3Mu.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/12/17/gVTJ1B6ewIvcLus.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h1 id="替换目标软件的Cask下载源地址"><a href="#替换目标软件的Cask下载源地址" class="headerlink" title="替换目标软件的Cask下载源地址"></a>替换目标软件的Cask下载源地址</h1><p>执行<code>brew cask edit datagrip</code>就会在默认编辑器打开这个软件的配置文件</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/12/17/UnozwtJDTMFXYh9.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>我们主要改的是红框中的两个信息，把它替换成指定版本的应用信息，保存退出</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/12/17/r569XZWOVjmcEwo.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/12/17/tLVYFqg8nT2bKGz.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>很明显这个配置文件所在的目录是个git仓库，所以改错了不用怕，到时候一波<code>git reset --hard</code>即可复原</p>
+<h1 id="执行安装命令"><a href="#执行安装命令" class="headerlink" title="执行安装命令"></a>执行安装命令</h1><p>这个时候执行<code>brew cask install datagrip</code>，顺利的话就会自动下载旧版本并且顺利安装<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/12/17/oaHz1MYjsRQ9wp6.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h1 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h1><blockquote>
+<p><a href="https://zeckli.github.io/en/2016/11/05/use-homebrew-cask-to-downgrad-or-install-en.html" target="_blank" rel="noopener">Use Homebrew Cask to downgrade or install specific version of package</a></p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2019-12-17T16:07:41.423Z" itemprop="dateUpdated">2019-12-18 00:07:41</time>
+</span><br>
+
+
+        
+        正所谓冤有头债有主，转载请注明出处：<a href="/2019/12/17/通过brew-cask按照指定版本的应用/" target="_blank" rel="external">http://lougazen.github.io/2019/12/17/通过brew-cask按照指定版本的应用/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://lougazen.github.io">
+            <img src="/img/10402620.jpg" alt="LouGaZen">
+            LouGaZen
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/12/12/打造Mac下舒适的终端/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">打造Mac下舒适的终端</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>LouGaZen &copy; 2018 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

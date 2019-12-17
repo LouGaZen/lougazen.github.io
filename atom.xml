@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lougazen.github.io/"/>
-  <updated>2019-12-16T15:28:43.072Z</updated>
+  <updated>2019-12-17T16:07:41.423Z</updated>
   <id>http://lougazen.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>通过brew cask按照指定版本的应用</title>
+    <link href="http://lougazen.github.io/2019/12/17/%E9%80%9A%E8%BF%87brew-cask%E6%8C%89%E7%85%A7%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC%E7%9A%84%E5%BA%94%E7%94%A8/"/>
+    <id>http://lougazen.github.io/2019/12/17/通过brew-cask按照指定版本的应用/</id>
+    <published>2019-12-17T14:58:25.000Z</published>
+    <updated>2019-12-17T16:07:41.423Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>最近在全新安装DataGrip(2019.3)的时候发现使用以前的洗白工具无法输入序列号，但是从2019.2版本升上来的idea和webstorm却能正常使用。作为一名idea系列的重度使（bai）用（piao）者实在是难受，首先想到的办法就是安装一个旧版本的DataGrip。但是Cask却不像Formulae通过一个@就能指定版本号，需要另辟蹊径。</p><h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>先把DataGrip完全卸载<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://i.loli.net/2019/12/17/cEWU3ZDBgvsYKHt.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure></p><p>然后执行一波<code>brew update</code>避免待会配置文件被覆盖</p><h1 id="寻找旧版应用的版本号及sha256信息"><a href="#寻找旧版应用的版本号及sha256信息" class="headerlink" title="寻找旧版应用的版本号及sha256信息"></a>寻找旧版应用的版本号及sha256信息</h1><p>对于大多数开发工具来说官网都会给出旧版的软件版本号或者下载地址等其他信息，如果有sha256值提供就在好不过了，可惜<a href="https://www.jetbrains.com/datagrip/download/other.html" target="_blank" rel="noopener">DataGrip</a>没有给出，只好下载回来自己算sha256</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://i.loli.net/2019/12/17/QNCOB5ZTRifz3Mu.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://i.loli.net/2019/12/17/gVTJ1B6ewIvcLus.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><h1 id="替换目标软件的Cask下载源地址"><a href="#替换目标软件的Cask下载源地址" class="headerlink" title="替换目标软件的Cask下载源地址"></a>替换目标软件的Cask下载源地址</h1><p>执行<code>brew cask edit datagrip</code>就会在默认编辑器打开这个软件的配置文件</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://i.loli.net/2019/12/17/UnozwtJDTMFXYh9.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p>我们主要改的是红框中的两个信息，把它替换成指定版本的应用信息，保存退出</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://i.loli.net/2019/12/17/r569XZWOVjmcEwo.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://i.loli.net/2019/12/17/tLVYFqg8nT2bKGz.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p>很明显这个配置文件所在的目录是个git仓库，所以改错了不用怕，到时候一波<code>git reset --hard</code>即可复原</p><h1 id="执行安装命令"><a href="#执行安装命令" class="headerlink" title="执行安装命令"></a>执行安装命令</h1><p>这个时候执行<code>brew cask install datagrip</code>，顺利的话就会自动下载旧版本并且顺利安装<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://i.loli.net/2019/12/17/oaHz1MYjsRQ9wp6.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure></p><h1 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h1><blockquote><p><a href="https://zeckli.github.io/en/2016/11/05/use-homebrew-cask-to-downgrad-or-install-en.html" target="_blank" rel="noopener">Use Homebrew Cask to downgrade or install specific version of package</a></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;序&quot;&gt;&lt;a href=&quot;#序&quot; class=&quot;headerlink&quot; title=&quot;序&quot;&gt;&lt;/a&gt;序&lt;/h1&gt;&lt;p&gt;最近在全新安装DataGrip(2019.3)的时候发现使用以前的洗白工具无法输入序列号，但是从2019.2版本升上来的idea和webstorm却
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>打造Mac下舒适的终端</title>
