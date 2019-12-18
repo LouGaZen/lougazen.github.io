@@ -1,5 +1,5 @@
 ---
-title: 通过brew cask按照指定版本的应用
+title: 通过brew cask安装指定版本的应用
 date: 2019-12-17 22:58:25
 tags:
 ---
