@@ -180,9 +180,35 @@ brew install toilet
 ```
 ![](https://i.loli.net/2019/12/16/gwlevVHQUCZAFr6.png)
 
-# 后记（挖坑）
+# ~~后记（挖坑）~~
 
-这一套下来在iTerm下面使用简直是强无敌，但是考虑还有系统自带的终端及idea和vscode的终端都要配置一遍是在是烦躁，在寻找有没有办法针对不同的shell加载不同的配置文件
+~~这一套下来在iTerm下面使用简直是强无敌，但是考虑还有系统自带的终端及idea和vscode的终端都要配置一遍是在是烦躁，在寻找有没有办法针对不同的shell加载不同的配置文件~~
+
+# （2019-12-22填坑）针对不同终端使用不同的主题
+
+通过查看[archey](https://github.com/obihann/archey-osx/blob/master/bin/archey)发现，终端软件（不是shell）的信息存放在`${TERM_PROGRAM}`这个变量里，遂修把配置文件中`ZSH_THEME="powerlevel9k/powerlevel9k"`这一行改为
+
+```markdown
+if [ "${TERM_PROGRAM}" = "iTerm.app" ]; then
+    POWERLEVEL9K_MODE="nerdfont-complete"
+    POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon root_indicator context ssh dir_writable dir vcs status)
+    POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
+    POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+    ZSH_THEME="powerlevel9k/powerlevel9k"
+else
+    ZSH_THEME="ys"
+fi
+```
+
+（顺便把powerlevel9k的一些配置也放到了一起）
+
+最终效果
+
+![](https://i.loli.net/2019/12/22/6pcKn2rWsANwaMf.png)
+![](https://i.loli.net/2019/12/22/euFiva8HWTqzMk1.png)
+
+完美
+![](https://i.loli.net/2019/12/22/XiYMjbp7cIRslaE.gif)
 
 # 鸣谢
 
