@@ -36,7 +36,10 @@
 <meta property="og:image" content="https://i.loli.net/2019/12/16/qrk1oOXgwPUsd4p.png">
 <meta property="og:image" content="https://i.loli.net/2019/12/16/85scRPWveNCi4kM.png">
 <meta property="og:image" content="https://i.loli.net/2019/12/16/gwlevVHQUCZAFr6.png">
-<meta property="og:updated_time" content="2019-12-16T15:28:43.072Z">
+<meta property="og:image" content="https://i.loli.net/2019/12/22/6pcKn2rWsANwaMf.png">
+<meta property="og:image" content="https://i.loli.net/2019/12/22/euFiva8HWTqzMk1.png">
+<meta property="og:image" content="https://i.loli.net/2019/12/22/XiYMjbp7cIRslaE.gif">
+<meta property="og:updated_time" content="2019-12-22T08:03:30.680Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="打造Mac下舒适的终端">
 <meta name="twitter:description" content="序拖延症拖了一年终于要开始打造自己的博客了(´ཀ`」 ∠)，先拿最近捣鼓的zsh开刀吧 准备brew、iTerm2和Oh-My-Zsh 使用brew安装nerd-font字体script12brew tap caskroom/fontsbrew cask install font-hack-nerd-font 配置iTerm2针对非ASCII码字符的字体">
@@ -127,7 +130,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -162,7 +165,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#序"><span class="post-toc-number">1.</span> <span class="post-toc-text">序</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#准备"><span class="post-toc-number">2.</span> <span class="post-toc-text">准备</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#配置zsh主题"><span class="post-toc-number">3.</span> <span class="post-toc-text">配置zsh主题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#配置iTerm2配色"><span class="post-toc-number">4.</span> <span class="post-toc-text">配置iTerm2配色</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装zsh插件"><span class="post-toc-number">5.</span> <span class="post-toc-text">安装zsh插件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#git"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">git</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#zsh-syntax-highlighting"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">zsh-syntax-highlighting</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#zsh-autosuggestions"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">zsh-autosuggestions</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#command-not-found"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">command-not-found</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#zsh-reload"><span class="post-toc-number">5.5.</span> <span class="post-toc-text">zsh_reload</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#git-open"><span class="post-toc-number">5.6.</span> <span class="post-toc-text">git-open</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#z"><span class="post-toc-number">5.7.</span> <span class="post-toc-text">z</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#safe-paste"><span class="post-toc-number">5.8.</span> <span class="post-toc-text">safe-paste</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#sudo"><span class="post-toc-number">5.9.</span> <span class="post-toc-text">sudo</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#extract"><span class="post-toc-number">5.10.</span> <span class="post-toc-text">extract</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#其他非zsh的插件"><span class="post-toc-number">6.</span> <span class="post-toc-text">其他非zsh的插件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#colorls"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">colorls</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#archey"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">archey</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#后记（挖坑）"><span class="post-toc-number">7.</span> <span class="post-toc-text">后记（挖坑）</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#鸣谢"><span class="post-toc-number">8.</span> <span class="post-toc-text">鸣谢</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#序"><span class="post-toc-number">1.</span> <span class="post-toc-text">序</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#准备"><span class="post-toc-number">2.</span> <span class="post-toc-text">准备</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#配置zsh主题"><span class="post-toc-number">3.</span> <span class="post-toc-text">配置zsh主题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#配置iTerm2配色"><span class="post-toc-number">4.</span> <span class="post-toc-text">配置iTerm2配色</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装zsh插件"><span class="post-toc-number">5.</span> <span class="post-toc-text">安装zsh插件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#git"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">git</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#zsh-syntax-highlighting"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">zsh-syntax-highlighting</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#zsh-autosuggestions"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">zsh-autosuggestions</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#command-not-found"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">command-not-found</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#zsh-reload"><span class="post-toc-number">5.5.</span> <span class="post-toc-text">zsh_reload</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#git-open"><span class="post-toc-number">5.6.</span> <span class="post-toc-text">git-open</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#z"><span class="post-toc-number">5.7.</span> <span class="post-toc-text">z</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#safe-paste"><span class="post-toc-number">5.8.</span> <span class="post-toc-text">safe-paste</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#sudo"><span class="post-toc-number">5.9.</span> <span class="post-toc-text">sudo</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#extract"><span class="post-toc-number">5.10.</span> <span class="post-toc-text">extract</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#其他非zsh的插件"><span class="post-toc-number">6.</span> <span class="post-toc-text">其他非zsh的插件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#colorls"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">colorls</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#archey"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">archey</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#后记（挖坑）"><span class="post-toc-number">7.</span> <span class="post-toc-text">后记（挖坑）</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#（2019-12-22填坑）针对不同终端使用不同的主题"><span class="post-toc-number">8.</span> <span class="post-toc-text">（2019-12-22填坑）针对不同终端使用不同的主题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#鸣谢"><span class="post-toc-number">9.</span> <span class="post-toc-text">鸣谢</span></a></li></ol>
         </nav>
     </aside>
 
@@ -290,7 +293,32 @@
                 </div>
                 <div class="image-caption"></div>
             </figure>
-<h1 id="后记（挖坑）"><a href="#后记（挖坑）" class="headerlink" title="后记（挖坑）"></a>后记（挖坑）</h1><p>这一套下来在iTerm下面使用简直是强无敌，但是考虑还有系统自带的终端及idea和vscode的终端都要配置一遍是在是烦躁，在寻找有没有办法针对不同的shell加载不同的配置文件</p>
+<h1 id="后记（挖坑）"><a href="#后记（挖坑）" class="headerlink" title="后记（挖坑）"></a><del>后记（挖坑）</del></h1><p><del>这一套下来在iTerm下面使用简直是强无敌，但是考虑还有系统自带的终端及idea和vscode的终端都要配置一遍是在是烦躁，在寻找有没有办法针对不同的shell加载不同的配置文件</del></p>
+<h1 id="（2019-12-22填坑）针对不同终端使用不同的主题"><a href="#（2019-12-22填坑）针对不同终端使用不同的主题" class="headerlink" title="（2019-12-22填坑）针对不同终端使用不同的主题"></a>（2019-12-22填坑）针对不同终端使用不同的主题</h1><p>通过查看<a href="https://github.com/obihann/archey-osx/blob/master/bin/archey" target="_blank" rel="noopener">archey</a>发现，终端软件（不是shell）的信息存放在<code>${TERM_PROGRAM}</code>这个变量里，遂修把配置文件中<code>ZSH_THEME=&quot;powerlevel9k/powerlevel9k&quot;</code>这一行改为</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if [ "$&#123;TERM_PROGRAM&#125;" = "iTerm.app" ]; then</span><br><span class="line"><span class="code">    POWERLEVEL9K_MODE="nerdfont-complete"</span></span><br><span class="line"><span class="code">    POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon root_indicator context ssh dir_writable dir vcs status)</span></span><br><span class="line"><span class="code">    POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()</span></span><br><span class="line"><span class="code">    POWERLEVEL9K_PROMPT_ADD_NEWLINE=true</span></span><br><span class="line"><span class="code">    ZSH_THEME="powerlevel9k/powerlevel9k"</span></span><br><span class="line">else</span><br><span class="line"><span class="code">    ZSH_THEME="ys"</span></span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+<p>（顺便把powerlevel9k的一些配置也放到了一起）</p>
+<p>最终效果</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/12/22/6pcKn2rWsANwaMf.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/12/22/euFiva8HWTqzMk1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>完美<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/12/22/XiYMjbp7cIRslaE.gif" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h1 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h1><blockquote>
 <p><a href="https://blog.biezhi.me/2018/11/build-a-beautiful-mac-terminal-environment.html" target="_blank" rel="noopener">打造 Mac 下高颜值好用的终端环境</a><br><a href="https://github.com/ohmyzsh/ohmyzsh" target="_blank" rel="noopener">oh-my-zsh</a><br><a href="https://github.com/Powerlevel9k/powerlevel9k" target="_blank" rel="noopener">powerlevel9k</a><br><a href="https://github.com/mbadolato/iTerm2-Color-Schemes" target="_blank" rel="noopener">iTerm2-Color-Schemes</a></p>
 </blockquote>
@@ -302,7 +330,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2019-12-16T15:28:43.072Z" itemprop="dateUpdated">2019-12-16 23:28:43</time>
+    最后更新时间：<time datetime="2019-12-22T08:03:30.680Z" itemprop="dateUpdated">2019-12-22 16:03:30</time>
 </span><br>
 
 
@@ -395,7 +423,7 @@
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">
