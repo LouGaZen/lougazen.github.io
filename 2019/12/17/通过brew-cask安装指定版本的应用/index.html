@@ -35,7 +35,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/12/17/r569XZWOVjmcEwo.png">
 <meta property="og:image" content="https://i.loli.net/2019/12/17/tLVYFqg8nT2bKGz.png">
 <meta property="og:image" content="https://i.loli.net/2019/12/17/oaHz1MYjsRQ9wp6.png">
-<meta property="og:updated_time" content="2019-12-18T12:50:37.189Z">
+<meta property="og:updated_time" content="2019-12-23T03:53:49.108Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="通过brew cask安装指定版本的应用">
 <meta name="twitter:description" content="序最近在全新安装DataGrip(2019.3)的时候发现使用以前的洗白工具无法输入序列号，但是从2019.2版本升上来的idea和webstorm却能正常使用。作为一名idea系列的重度使（bai）用（piao）者实在是难受，首先想到的办法就是安装一个旧版本的DataGrip。但是Cask却不像Formulae通过一个@就能指定版本号，需要另辟蹊径。 准备工作先把DataGrip完全卸载">
@@ -161,7 +161,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#序"><span class="post-toc-number">1.</span> <span class="post-toc-text">序</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#准备工作"><span class="post-toc-number">2.</span> <span class="post-toc-text">准备工作</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#寻找旧版应用的版本号及sha256信息"><span class="post-toc-number">3.</span> <span class="post-toc-text">寻找旧版应用的版本号及sha256信息</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#替换目标软件的Cask下载源地址"><span class="post-toc-number">4.</span> <span class="post-toc-text">替换目标软件的Cask下载源地址</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#执行安装命令"><span class="post-toc-number">5.</span> <span class="post-toc-text">执行安装命令</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#鸣谢"><span class="post-toc-number">6.</span> <span class="post-toc-text">鸣谢</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#序"><span class="post-toc-number">1.</span> <span class="post-toc-text">序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#准备工作"><span class="post-toc-number">2.</span> <span class="post-toc-text">准备工作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#寻找旧版应用的版本号及sha256信息"><span class="post-toc-number">3.</span> <span class="post-toc-text">寻找旧版应用的版本号及sha256信息</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#替换目标软件的Cask下载源地址"><span class="post-toc-number">4.</span> <span class="post-toc-text">替换目标软件的Cask下载源地址</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#执行安装命令"><span class="post-toc-number">5.</span> <span class="post-toc-text">执行安装命令</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#鸣谢"><span class="post-toc-number">6.</span> <span class="post-toc-text">鸣谢</span></a></li></ol>
         </nav>
     </aside>
 
@@ -184,62 +184,63 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>最近在全新安装DataGrip(2019.3)的时候发现使用以前的洗白工具无法输入序列号，但是从2019.2版本升上来的idea和webstorm却能正常使用。作为一名idea系列的重度使（bai）用（piao）者实在是难受，首先想到的办法就是安装一个旧版本的DataGrip。但是Cask却不像Formulae通过一个@就能指定版本号，需要另辟蹊径。</p>
-<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>先把DataGrip完全卸载<br><figure class="image-bubble">
+            <h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>最近在全新安装DataGrip(2019.3)的时候发现使用以前的洗白工具无法输入序列号，但是从2019.2版本升上来的idea和webstorm却能正常使用。作为一名idea系列的重度使（bai）用（piao）者实在是难受，首先想到的办法就是安装一个旧版本的DataGrip。但是Cask却不像Formulae通过一个@就能指定版本号，需要另辟蹊径。</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>先把DataGrip完全卸载<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://i.loli.net/2019/12/17/cEWU3ZDBgvsYKHt.png" alt="" title="">
+                    <img src="https://i.loli.net/2019/12/17/cEWU3ZDBgvsYKHt.png" alt="卸载DataGrip" title="">
                 </div>
-                <div class="image-caption"></div>
+                <div class="image-caption">卸载DataGrip</div>
             </figure></p>
 <p>然后执行一波<code>brew update</code>避免待会配置文件被覆盖</p>
-<h1 id="寻找旧版应用的版本号及sha256信息"><a href="#寻找旧版应用的版本号及sha256信息" class="headerlink" title="寻找旧版应用的版本号及sha256信息"></a>寻找旧版应用的版本号及sha256信息</h1><p>对于大多数开发工具来说官网都会给出旧版的软件版本号或者下载地址等其他信息，如果有sha256值提供就在好不过了，可惜<a href="https://www.jetbrains.com/datagrip/download/other.html" target="_blank" rel="noopener">DataGrip</a>没有给出，只好下载回来自己算sha256</p>
+<h2 id="寻找旧版应用的版本号及sha256信息"><a href="#寻找旧版应用的版本号及sha256信息" class="headerlink" title="寻找旧版应用的版本号及sha256信息"></a>寻找旧版应用的版本号及sha256信息</h2><p>对于大多数开发工具来说官网都会给出旧版的软件版本号或者下载地址等其他信息，如果有sha256值提供就在好不过了，可惜<a href="https://www.jetbrains.com/datagrip/download/other.html" target="_blank" rel="noopener">DataGrip</a>没有给出，只好下载回来自己算sha256</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://i.loli.net/2019/12/17/QNCOB5ZTRifz3Mu.png" alt="" title="">
+                    <img src="https://i.loli.net/2019/12/17/QNCOB5ZTRifz3Mu.png" alt="下载目标版本的DataGrip" title="">
                 </div>
-                <div class="image-caption"></div>
+                <div class="image-caption">下载目标版本的DataGrip</div>
             </figure>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://i.loli.net/2019/12/17/gVTJ1B6ewIvcLus.png" alt="" title="">
+                    <img src="https://i.loli.net/2019/12/17/gVTJ1B6ewIvcLus.png" alt="计算哈希" title="">
                 </div>
-                <div class="image-caption"></div>
+                <div class="image-caption">计算哈希</div>
             </figure>
-<h1 id="替换目标软件的Cask下载源地址"><a href="#替换目标软件的Cask下载源地址" class="headerlink" title="替换目标软件的Cask下载源地址"></a>替换目标软件的Cask下载源地址</h1><p>执行<code>brew cask edit datagrip</code>就会在默认编辑器打开这个软件的配置文件</p>
+<h2 id="替换目标软件的Cask下载源地址"><a href="#替换目标软件的Cask下载源地址" class="headerlink" title="替换目标软件的Cask下载源地址"></a>替换目标软件的Cask下载源地址</h2><p>执行<code>brew cask edit datagrip</code>就会在默认编辑器打开这个软件的配置文件</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://i.loli.net/2019/12/17/UnozwtJDTMFXYh9.png" alt="" title="">
+                    <img src="https://i.loli.net/2019/12/17/UnozwtJDTMFXYh9.png" alt="brew cask edit datagrip" title="">
                 </div>
-                <div class="image-caption"></div>
+                <div class="image-caption">brew cask edit datagrip</div>
             </figure>
 <p>我们主要改的是红框中的两个信息，把它替换成指定版本的应用信息，保存退出</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://i.loli.net/2019/12/17/r569XZWOVjmcEwo.png" alt="" title="">
+                    <img src="https://i.loli.net/2019/12/17/r569XZWOVjmcEwo.png" alt="修改版本号和哈希" title="">
                 </div>
-                <div class="image-caption"></div>
+                <div class="image-caption">修改版本号和哈希</div>
             </figure>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://i.loli.net/2019/12/17/tLVYFqg8nT2bKGz.png" alt="" title="">
+                    <img src="https://i.loli.net/2019/12/17/tLVYFqg8nT2bKGz.png" alt="修改版本号和哈希" title="">
                 </div>
-                <div class="image-caption"></div>
+                <div class="image-caption">修改版本号和哈希</div>
             </figure>
 <p>很明显这个配置文件所在的目录是个git仓库，所以改错了不用怕，到时候一波<code>git reset --hard</code>即可复原</p>
-<h1 id="执行安装命令"><a href="#执行安装命令" class="headerlink" title="执行安装命令"></a>执行安装命令</h1><p>这个时候执行<code>brew cask install datagrip</code>，顺利的话就会自动下载旧版本并且顺利安装<br><figure class="image-bubble">
+<h2 id="执行安装命令"><a href="#执行安装命令" class="headerlink" title="执行安装命令"></a>执行安装命令</h2><p>这个时候执行<code>brew cask install datagrip</code>，顺利的话就会自动下载旧版本并且顺利安装</p>
+<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://i.loli.net/2019/12/17/oaHz1MYjsRQ9wp6.png" alt="" title="">
+                    <img src="https://i.loli.net/2019/12/17/oaHz1MYjsRQ9wp6.png" alt="brew cask install datagrip" title="">
                 </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h1 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h1><blockquote>
+                <div class="image-caption">brew cask install datagrip</div>
+            </figure>
+<h2 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h2><blockquote>
 <p><a href="https://zeckli.github.io/en/2016/11/05/use-homebrew-cask-to-downgrad-or-install-en.html" target="_blank" rel="noopener">Use Homebrew Cask to downgrade or install specific version of package</a></p>
 </blockquote>
 
@@ -250,7 +251,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-12-18T12:50:37.189Z" itemprop="dateUpdated">2019-12-18 20:50:37</time>
+    最后更新时间：<time datetime="2019-12-23T03:53:49.108Z" itemprop="dateUpdated">2019-12-23 11:53:49</time>
 </span><br>
 
 
