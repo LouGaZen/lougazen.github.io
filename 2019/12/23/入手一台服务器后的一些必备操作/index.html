@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>入手一台服务器后的一些必备操作 | Apocalypse</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="序无意中看到腾讯云服务器的活动（Pony麻烦结一下广告费谢谢），趁着现在还不够25岁赶紧续了3次每次最多续1年                                                                                              Pony Ma亏得都要坐公交了              修改root密码拿到服务器第一步就是把默认那">
+<meta property="og:type" content="article">
+<meta property="og:title" content="入手一台服务器后的一些必备操作">
+<meta property="og:url" content="http://lougazen.github.io/2019/12/23/入手一台服务器后的一些必备操作/index.html">
+<meta property="og:site_name" content="Apocalypse">
+<meta property="og:description" content="序无意中看到腾讯云服务器的活动（Pony麻烦结一下广告费谢谢），趁着现在还不够25岁赶紧续了3次每次最多续1年                                                                                              Pony Ma亏得都要坐公交了              修改root密码拿到服务器第一步就是把默认那">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.loli.net/2019/12/23/dAZz8sf3TKNxjkY.png">
+<meta property="og:image" content="https://i.loli.net/2019/12/23/ZJFX53jydVRfSxc.png">
+<meta property="og:image" content="https://i.loli.net/2019/12/24/ATaymv9Re6NQ4gB.png">
+<meta property="og:image" content="https://i.loli.net/2019/12/24/BCjFrIUNmEKqw7o.png">
+<meta property="og:image" content="https://i.loli.net/2019/12/24/Q9Jc2EhPaGAkgbI.png">
+<meta property="og:image" content="https://i.loli.net/2019/12/24/K64XikdOT1CBmQ5.png">
+<meta property="og:image" content="https://i.loli.net/2019/12/24/W3XUaY7IlskCTiy.png">
+<meta property="og:image" content="https://i.loli.net/2019/12/24/SCoQvKqa1sgHDGJ.png">
+<meta property="og:image" content="https://i.loli.net/2019/12/24/32Xz8Ujdotqrx5F.png">
+<meta property="og:image" content="https://i.loli.net/2019/12/24/ZbrtGuv4PpnTKcg.png">
+<meta property="og:updated_time" content="2019-12-24T10:54:45.999Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="入手一台服务器后的一些必备操作">
+<meta name="twitter:description" content="序无意中看到腾讯云服务器的活动（Pony麻烦结一下广告费谢谢），趁着现在还不够25岁赶紧续了3次每次最多续1年                                                                                              Pony Ma亏得都要坐公交了              修改root密码拿到服务器第一步就是把默认那">
+<meta name="twitter:image" content="https://i.loli.net/2019/12/23/dAZz8sf3TKNxjkY.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Apocalypse" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/fluidicon.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/10402620.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">LouGaZen</h5>
+          <a href="mailto:null" class="mail">
+        </a></hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/LouGaZen" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">入手一台服务器后的一些必备操作</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">入手一台服务器后的一些必备操作</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-12-23T08:17:24.000Z" itemprop="datePublished" class="page-time">
+  2019-12-23
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#序"><span class="post-toc-number">1.</span> <span class="post-toc-text">序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#修改root密码"><span class="post-toc-number">2.</span> <span class="post-toc-text">修改root密码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置服务器免密登陆ssh-keygen"><span class="post-toc-number">3.</span> <span class="post-toc-text">配置服务器免密登陆ssh-keygen</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#防火墙"><span class="post-toc-number">4.</span> <span class="post-toc-text">防火墙</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#修改ssh默认端口"><span class="post-toc-number">5.</span> <span class="post-toc-text">修改ssh默认端口</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装docker"><span class="post-toc-number">6.</span> <span class="post-toc-text">安装docker</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用docker启动nginx"><span class="post-toc-number">7.</span> <span class="post-toc-text">使用docker启动nginx</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#鸣谢"><span class="post-toc-number">8.</span> <span class="post-toc-text">鸣谢</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-入手一台服务器后的一些必备操作" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">入手一台服务器后的一些必备操作</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-12-23 16:17:24" datetime="2019-12-23T08:17:24.000Z" itemprop="datePublished">2019-12-23</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>无意中看到腾讯云服务器的<a href="https://cloud.tencent.com/act/campus?fromSource=gwzcw.1293314.1293314.1293314&amp;cps_key=db0b88ca8f49ff0684eddea9ae6bb50b" target="_blank" rel="noopener">活动</a><del>（Pony麻烦结一下广告费谢谢）</del>，趁着现在还不够25岁赶紧续了3次每次最多续1年</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/12/23/dAZz8sf3TKNxjkY.png" alt="Pony Ma亏得都要坐公交了" title="">
+                </div>
+                <div class="image-caption">Pony Ma亏得都要坐公交了</div>
+            </figure>
+<h2 id="修改root密码"><a href="#修改root密码" class="headerlink" title="修改root密码"></a>修改root密码</h2><p>拿到服务器第一步就是把默认那个又长又难记的密码改掉</p>
+<p>在命令行执行<code>passwd</code></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/12/23/ZJFX53jydVRfSxc.png" alt="passwd" title="">
+                </div>
+                <div class="image-caption">passwd</div>
+            </figure>
+<p>修改成功后记得新开个tab测试新密码能否登陆再退出当前会话</p>
+<h2 id="配置服务器免密登陆ssh-keygen"><a href="#配置服务器免密登陆ssh-keygen" class="headerlink" title="配置服务器免密登陆ssh-keygen"></a>配置服务器免密登陆ssh-keygen</h2><p>先查看本机有没有生成过ssh的公钥和私钥</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.ssh</span><br><span class="line">ls -al</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/12/24/ATaymv9Re6NQ4gB.png" alt="公钥和私钥" title="">
+                </div>
+                <div class="image-caption">公钥和私钥</div>
+            </figure>
+<p>红框中的两个文件分别存放着私钥和公钥，如果没有这两个文件就按以下步骤来</p>
+<p>执行<code>ssh-keygen</code>然后按三下回车</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/12/24/BCjFrIUNmEKqw7o.png" alt="ssh-keygen" title="">
+                </div>
+                <div class="image-caption">ssh-keygen</div>
+            </figure>
+<p>现在再去查看就有公钥的信息了</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/12/24/Q9Jc2EhPaGAkgbI.png" alt="id_rsa.pub" title="">
+                </div>
+                <div class="image-caption">id_rsa.pub</div>
+            </figure>
+<p>然后把这段公钥上传到目标服务器的<code>~/.ssh/authorized_keys</code>文件当中</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/12/24/K64XikdOT1CBmQ5.png" alt="authorized_keys" title="">
+                </div>
+                <div class="image-caption">authorized_keys</div>
+            </figure>
+<p>测试一下，现在可以不用密码顺利登陆进来了</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/12/24/W3XUaY7IlskCTiy.png" alt="免密登陆" title="">
+                </div>
+                <div class="image-caption">免密登陆</div>
+            </figure>
+<p>！！！注意：万一电脑丢失记得上服务器把该机器的公钥删掉</p>
+<h2 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h2><p>服务器到手的时候自带了firewalld但是并没有启动，使用<code>firewall-cmd --state</code>命令可以查看firewall的运行状态</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/12/24/SCoQvKqa1sgHDGJ.png" alt="firewall-cmd --state" title="">
+                </div>
+                <div class="image-caption">firewall-cmd --state</div>
+            </figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> firewalld <span class="comment"># 启用自动启动</span></span><br><span class="line">systemctl start firewalld <span class="comment"># 启动</span></span><br></pre></td></tr></table></figure>
+<p>成功的话再次查看状态会显示running</p>
+<p>把常用的服务和端口加入允许列表<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --zone=public --add-service=http</span><br><span class="line">firewall-cmd --permanent --zone=public --add-service=https</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure></p>
+<h2 id="修改ssh默认端口"><a href="#修改ssh默认端口" class="headerlink" title="修改ssh默认端口"></a>修改ssh默认端口</h2><p><del>稍有常识的人</del> 众所周知ssh默认端口是22，如果不加以修改很容易被人攻击</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/12/24/32Xz8Ujdotqrx5F.png" alt="一夜过后被尝试889次登录" title="">
+                </div>
+                <div class="image-caption">一夜过后被尝试889次登录</div>
+            </figure>
+<p>（题外话使用<code>lastb</code>命令可以查看尝试登录的客户端信息，如果信息太多则<code>lastb &gt; fail.log</code>重定向到本地文件再查看）</p>
+<p>ssh端口的配置存放在<code>/etc/ssh/sshd_config</code>中，直接在<code># Port 22</code>下一行添加</p>
+<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Port 22</span><br><span class="line">Port （你目标的端口）</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/12/24/ZbrtGuv4PpnTKcg.png" alt="sshd_config" title="">
+                </div>
+                <div class="image-caption">sshd_config</div>
+            </figure>
+<p>加上22端口是防止现在的连接失效，万一你添加的端口被防火墙屏蔽的那就gg了</p>
+<p>然后再添加个防火墙允许规则</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=（你目标的端口）/tcp --permanent</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+<p>重启ssh服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart sshd.service</span><br></pre></td></tr></table></figure>
+<p>不要关闭当前连接，新开个tab尝试能否连接成功，成功后再去把22端口删掉</p>
+<p>端口修改后跟ssh相关的命令要带端口参数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh root@xxx.xx -p 123</span><br><span class="line">sftp -P 123 root@xxx.xx</span><br><span class="line">scp -P 123 ......</span><br></pre></td></tr></table></figure>
+<h2 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h2><p>按照官方的<a href="https://docs.docker.com/install/linux/docker-ce/centos/" target="_blank" rel="noopener">文档</a>把下面命令执行一遍就行了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo yum remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-engine</span><br><span class="line">yum install -y yum-utils device-mapper-persistent-data lvm2</span><br><span class="line">yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo</span><br><span class="line">yum install docker-ce docker-ce-cli containerd.io</span><br><span class="line">systemctl <span class="built_in">enable</span> docker</span><br><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
+<h2 id="使用docker启动nginx"><a href="#使用docker启动nginx" class="headerlink" title="使用docker启动nginx"></a>使用docker启动nginx</h2><p>首先在srv目录创建文件夹，用于放置ssl证书及nginx配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /srv/nginx-data/conf/cert</span><br></pre></td></tr></table></figure>
+<p>把申请到的证书放在<code>/srv/nginx-data/conf/cert</code>目录下</p>
+<p>在<code>/srv/nginx-data/conf</code>目录下创建一个<code>index.conf</code>的文件，内容如下</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 使非www域名自动跳转到带www的域名</span></span><br><span class="line">server &#123;</span><br><span class="line"><span class="code">    listen *:80;</span></span><br><span class="line"><span class="code">    listen *:443 ssl http2;</span></span><br><span class="line"><span class="code">    listen [::]:80;</span></span><br><span class="line"><span class="code">    listen [::]:443 ssl http2;</span></span><br><span class="line"><span class="code">    server_name 自己的域名;</span></span><br><span class="line"></span><br><span class="line"><span class="code">    ssl_certificate SSL证书;</span></span><br><span class="line"><span class="code">    ssl_certificate_key SSL证书;</span></span><br><span class="line"><span class="code">    return 301 https://www.自己的域名$request_uri;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="section"># 使http自动跳转到https</span></span><br><span class="line">server &#123;</span><br><span class="line"><span class="code">    listen *:80;</span></span><br><span class="line"><span class="code">    listen [::]:80;</span></span><br><span class="line"><span class="code">    server_name www.自己的域名;</span></span><br><span class="line"><span class="code">    return 301 https://www.自己的域名$request_uri;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line"><span class="code">    listen *:443 ssl http2;</span></span><br><span class="line"><span class="code">    listen [::]:443 ssl http2;</span></span><br><span class="line"><span class="code">    server_name www.自己的域名;</span></span><br><span class="line"><span class="code">    ssl_certificate SSL证书;</span></span><br><span class="line"><span class="code">    ssl_certificate_key SSL证书;</span></span><br><span class="line"></span><br><span class="line"><span class="code">    #charset koi8-r;</span></span><br><span class="line"><span class="code">    #access_log  /var/log/nginx/host.access.log  main;</span></span><br><span class="line"></span><br><span class="line"><span class="code">    location / &#123;</span></span><br><span class="line"><span class="code">        root   /usr/share/nginx/html;</span></span><br><span class="line"><span class="code">        index  index.html index.htm;</span></span><br><span class="line"><span class="code">    &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="code">    #error_page  404              /404.html;</span></span><br><span class="line"></span><br><span class="line"><span class="code">    # redirect server error pages to the static page /50x.html</span></span><br><span class="line"><span class="code">    #</span></span><br><span class="line"><span class="code">    error_page   500 502 503 504  /50x.html;</span></span><br><span class="line"><span class="code">    location = /50x.html &#123;</span></span><br><span class="line"><span class="code">        root   /usr/share/nginx/html;</span></span><br><span class="line"><span class="code">    &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="code">    # proxy the PHP scripts to Apache listening on 127.0.0.1:80</span></span><br><span class="line"><span class="code">    #</span></span><br><span class="line"><span class="code">    #location ~ \.php$ &#123;</span></span><br><span class="line"><span class="code">    #    proxy_pass   http://127.0.0.1;</span></span><br><span class="line"><span class="code">    #&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="code">    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span></span><br><span class="line"><span class="code">    #</span></span><br><span class="line"><span class="code">    #location ~ \.php$ &#123;</span></span><br><span class="line"><span class="code">    #    root           html;</span></span><br><span class="line"><span class="code">    #    fastcgi_pass   127.0.0.1:9000;</span></span><br><span class="line"><span class="code">    #    fastcgi_index  index.php;</span></span><br><span class="line"><span class="code">    #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</span></span><br><span class="line"><span class="code">    #    include        fastcgi_params;</span></span><br><span class="line"><span class="code">    #&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="code">    # deny access to .htaccess files, if Apache's document root</span></span><br><span class="line"><span class="code">    # concurs with nginx's one</span></span><br><span class="line"><span class="code">    #</span></span><br><span class="line"><span class="code">    #location ~ /\.ht &#123;</span></span><br><span class="line"><span class="code">    #    deny  all;</span></span><br><span class="line"><span class="code">    #&#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>完成后执行以下命令启动docker版nginx</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --restart=always --name nginx -v /srv/nginx-data/conf:/etc/nginx/conf.d:ro -p 80:80 -p 443:443 nginx</span><br></pre></td></tr></table></figure>
+<p>其中一些参数的含义如下：</p>
+<ul>
+<li><code>-d</code>代表后台运行</li>
+<li><code>--restart=always</code>代表docker启动的时候该container也一起启动</li>
+<li><code>-name</code>给该容器命名方便管理</li>
+<li><code>-v</code>映射目录，格式<code>host目录:container目录(:ro)</code>，ro代表只读（read-only）</li>
+<li><code>-p</code>开放指定端口，格式<code>host端口:container端口</code></li>
+</ul>
+<p>如果要修改nginx的配置文件，一般都要执行<code>nginx -t</code>测试和<code>nginx -s reload</code>来使生效，而在docker下就要执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> nginx /usr/sbin/nginx -t</span><br><span class="line">docker <span class="built_in">exec</span> nginx /usr/sbin/nginx -s reload</span><br></pre></td></tr></table></figure>
+<h2 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h2><blockquote>
+<p><a href="https://git-scm.com/book/zh/v2/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5#r_generate_ssh_key" target="_blank" rel="noopener">4.3 服务器上的 Git - 生成 SSH 公钥</a><br><a href="https://wangchujiang.com/linux-command/c/firewall-cmd.html" target="_blank" rel="noopener">firewall-cmd</a><br><a href="https://www.jianshu.com/p/c18d5347c9b6" target="_blank" rel="noopener">Centos7 修改SSH 端口</a><br><a href="https://docs.docker.com/install/linux/docker-ce/centos/" target="_blank" rel="noopener">Get Docker Engine - Community for CentOS</a></p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最終更新：<time datetime="2019-12-24T10:54:45.999Z" itemprop="dateUpdated">2019-12-24 18:54:45</time>
+</span><br>
+
+
+        
+        正所谓冤有头债有主，转载请注明出处：<a href="/2019/12/23/入手一台服务器后的一些必备操作/" target="_blank" rel="external">http://lougazen.github.io/2019/12/23/入手一台服务器后的一些必备操作/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://lougazen.github.io">
+            <img src="/img/10402620.jpg" alt="LouGaZen">
+            LouGaZen
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/12/17/通过brew-cask安装指定版本的应用/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">通过brew cask安装指定版本的应用</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>LouGaZen &copy; 2018 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
