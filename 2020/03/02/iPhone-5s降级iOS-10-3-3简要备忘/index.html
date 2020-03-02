@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>iPhone 5s降级iOS 10.3.3简要备忘 | Apocalypse</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="序好像好久都没有更新博客了，还是要养成做记录的习惯。 偶然看到5s可以降级iOS 10.3.3的帖子，二话不说GKD。中途遇到一些问题在此做个备忘 准备 1.一台正常运行的iPhone 5s 2.macOS with python3 environment 3.科学上网 正式开始 1.到https://github.com/MatthewPierson/Vieux把降级脚本克隆下来，然后去http">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iPhone 5s降级iOS 10.3.3简要备忘">
+<meta property="og:url" content="http://lougazen.github.io/2020/03/02/iPhone-5s降级iOS-10-3-3简要备忘/index.html">
+<meta property="og:site_name" content="Apocalypse">
+<meta property="og:description" content="序好像好久都没有更新博客了，还是要养成做记录的习惯。 偶然看到5s可以降级iOS 10.3.3的帖子，二话不说GKD。中途遇到一些问题在此做个备忘 准备 1.一台正常运行的iPhone 5s 2.macOS with python3 environment 3.科学上网 正式开始 1.到https://github.com/MatthewPierson/Vieux把降级脚本克隆下来，然后去http">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.loli.net/2020/03/02/tKhObEuIjQLPqM1.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/02/TraXm5hLEo34j89.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/02/p5olFN8YBrPxDZ9.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/02/YzLmIZRJtuWOHi5.png">
+<meta property="og:updated_time" content="2020-03-02T05:53:24.235Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iPhone 5s降级iOS 10.3.3简要备忘">
+<meta name="twitter:description" content="序好像好久都没有更新博客了，还是要养成做记录的习惯。 偶然看到5s可以降级iOS 10.3.3的帖子，二话不说GKD。中途遇到一些问题在此做个备忘 准备 1.一台正常运行的iPhone 5s 2.macOS with python3 environment 3.科学上网 正式开始 1.到https://github.com/MatthewPierson/Vieux把降级脚本克隆下来，然后去http">
+<meta name="twitter:image" content="https://i.loli.net/2020/03/02/tKhObEuIjQLPqM1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Apocalypse" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/fluidicon.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/10402620.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">LouGaZen</h5>
+          <a href="mailto:null" class="mail">
+        </a></hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/LouGaZen" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">iPhone 5s降级iOS 10.3.3简要备忘</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">iPhone 5s降级iOS 10.3.3简要备忘</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-03-02T05:04:07.000Z" itemprop="datePublished" class="page-time">
+  2020-03-02
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#序"><span class="post-toc-number">1.</span> <span class="post-toc-text">序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#准备"><span class="post-toc-number">2.</span> <span class="post-toc-text">准备</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#正式开始"><span class="post-toc-number">3.</span> <span class="post-toc-text">正式开始</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#奇难杂症"><span class="post-toc-number">4.</span> <span class="post-toc-text">奇难杂症</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#No-Module-Found"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">No Module Found</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#No-Backend-Available"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">No Backend Available</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#鸣谢"><span class="post-toc-number">5.</span> <span class="post-toc-text">鸣谢</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-iPhone-5s降级iOS-10-3-3简要备忘" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">iPhone 5s降级iOS 10.3.3简要备忘</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-03-02 13:04:07" datetime="2020-03-02T05:04:07.000Z" itemprop="datePublished">2020-03-02</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>好像好久都没有更新博客了，还是要养成做记录的习惯。</p>
+<p>偶然看到5s可以降级iOS 10.3.3的帖子，二话不说GKD。中途遇到一些问题在此做个备忘</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p> 1.一台正常运行的iPhone 5s<br> 2.macOS with python3 environment<br> 3.科学上网</p>
+<h2 id="正式开始"><a href="#正式开始" class="headerlink" title="正式开始"></a>正式开始</h2><p> 1.到<a href="https://github.com/MatthewPierson/Vieux" target="_blank" rel="noopener">https://github.com/MatthewPierson/Vieux</a>把降级脚本克隆下来，然后去<a href="https://ipsw.me" target="_blank" rel="noopener">https://ipsw.me</a>下载对应型号的iOS 10.3.3固件到脚本所在目录<br> 2.执行<code>sudo pip3 install -r requirement.txt</code>安装所需包（可能需要科学上网）<br> 3.手机连上电脑进入DFU模式（如何进入DFU可以看<a href="https://zh.ifixit.com/Guide/iPhone+4+-+4S+-+5+-+5S+-+5c+-+6+-+6S+-+%E5%A6%82%E4%BD%95%E5%9C%A8DFU%E6%A8%A1%E5%BC%8F%E5%88%B7%E6%9C%BA%E3%80%82%E5%AF%86%E7%A0%81%E6%81%A2%E5%A4%8D%E3%80%82/28229" target="_blank" rel="noopener">这里</a>）<br> 3.执行<code>sudo python3 vieux -i ➕上固件所在路径</code><br> 4.等待脚本撞bug。按照漏洞发现者的说法这个漏洞并不是100%成功，没有撞成功重试即可，成功的标志是手机闪一下绿屏。绿屏过后就会自己恢复10.3.3固件</p>
+<p> <img src="https://i.loli.net/2020/03/02/tKhObEuIjQLPqM1.png" alt="降级成功"></p>
+<h2 id="奇难杂症"><a href="#奇难杂症" class="headerlink" title="奇难杂症"></a>奇难杂症</h2><h3 id="No-Module-Found"><a href="#No-Module-Found" class="headerlink" title="No Module Found"></a>No Module Found</h3><p> 这个我是感觉最坑爹的地方，pip3安装说成功，<code>pip3 list</code>也有list出来，但是执行的时候却报错，一看<code>pip3 --version</code>下巴都掉了</p>
+<p> <img src="https://i.loli.net/2020/03/02/TraXm5hLEo34j89.png" alt="pip3 --version"></p>
+ <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2020/03/02/p5olFN8YBrPxDZ9.png" alt="坑" title="">
+                </div>
+                <div class="image-caption">坑</div>
+            </figure>
+<p> 爬了一下google，发现pip的命令可以用<code>python3 -m pip ...</code>代替，所以上述第二步的安装环境可以执行<code>sudo python3 -m pip install -r requirements.txt</code></p>
+<h3 id="No-Backend-Available"><a href="#No-Backend-Available" class="headerlink" title="No Backend Available"></a>No Backend Available</h3><p> 这个一开始以为是包的问题，用pip install补上后发现问题依旧，然后去脚本仓库找有没有相关的issue，嚯还真有，解决办法是通过brew安装，即<code>brew install libusb</code></p>
+<p> <img src="https://i.loli.net/2020/03/02/YzLmIZRJtuWOHi5.png" alt="No Backend Available"></p>
+<h2 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h2><blockquote>
+<p><a href="https://www.feng.com/post/12857994" target="_blank" rel="noopener">5s降级10.3.3不是很难，就是需要仔细，你就可以完成降级</a><br><a href="https://github.com/MatthewPierson/Vieux" target="_blank" rel="noopener">Vieux - A tool for 32/64 Bit iOS downgrades using OTA Blobs</a><br><a href="https://stackoverflow.com/questions/51055429/why-pip3-install-in-python2-sitepackages" target="_blank" rel="noopener">Why pip3 install in python2 sitepackages</a><br><a href="https://www.nazhuo.work/index.php/archives/11/" target="_blank" rel="noopener">使用 Vieux 将 iphone5s 降级到 10.3.3</a><br><a href="https://zh.ifixit.com/Guide/iPhone+4+-+4S+-+5+-+5S+-+5c+-+6+-+6S+-+%E5%A6%82%E4%BD%95%E5%9C%A8DFU%E6%A8%A1%E5%BC%8F%E5%88%B7%E6%9C%BA%E3%80%82%E5%AF%86%E7%A0%81%E6%81%A2%E5%A4%8D%E3%80%82/28229" target="_blank" rel="noopener">iPhone 4 / 4S / 5 / 5S / 5c / 6 / 6S - 如何在DFU模式刷机。密码恢复。</a></p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最終更新：<time datetime="2020-03-02T05:53:24.235Z" itemprop="dateUpdated">2020-03-02 13:53:24</time>
+</span><br>
+
+
+        
+        正所谓冤有头债有主，转载请注明出处：<a href="/2020/03/02/iPhone-5s降级iOS-10-3-3简要备忘/" target="_blank" rel="external">http://lougazen.github.io/2020/03/02/iPhone-5s降级iOS-10-3-3简要备忘/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://lougazen.github.io">
+            <img src="/img/10402620.jpg" alt="LouGaZen">
+            LouGaZen
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/12/23/入手一台服务器后的一些必备操作/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">入手一台服务器后的一些必备操作</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>LouGaZen &copy; 2018 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

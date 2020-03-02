@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/12/24/SCoQvKqa1sgHDGJ.png">
 <meta property="og:image" content="https://i.loli.net/2019/12/24/32Xz8Ujdotqrx5F.png">
 <meta property="og:image" content="https://i.loli.net/2019/12/24/ZbrtGuv4PpnTKcg.png">
-<meta property="og:updated_time" content="2019-12-24T10:54:45.999Z">
+<meta property="og:updated_time" content="2020-03-02T05:39:47.288Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="入手一台服务器后的一些必备操作">
 <meta name="twitter:description" content="序无意中看到腾讯云服务器的活动（Pony麻烦结一下广告费谢谢），趁着现在还不够25岁赶紧续了3次每次最多续1年                                                                                              Pony Ma亏得都要坐公交了              修改root密码拿到服务器第一步就是把默认那">
@@ -258,7 +258,8 @@
             </figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> firewalld <span class="comment"># 启用自动启动</span></span><br><span class="line">systemctl start firewalld <span class="comment"># 启动</span></span><br></pre></td></tr></table></figure>
 <p>成功的话再次查看状态会显示running</p>
-<p>把常用的服务和端口加入允许列表<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --zone=public --add-service=http</span><br><span class="line">firewall-cmd --permanent --zone=public --add-service=https</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure></p>
+<p>把常用的服务和端口加入允许列表</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --zone=public --add-service=http</span><br><span class="line">firewall-cmd --permanent --zone=public --add-service=https</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
 <h2 id="修改ssh默认端口"><a href="#修改ssh默认端口" class="headerlink" title="修改ssh默认端口"></a>修改ssh默认端口</h2><p><del>稍有常识的人</del> 众所周知ssh默认端口是22，如果不加以修改很容易被人攻击</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
@@ -315,7 +316,7 @@
     <div class="content">
         
 <span class="post-time">
-    最終更新：<time datetime="2019-12-24T10:54:45.999Z" itemprop="dateUpdated">2019-12-24 18:54:45</time>
+    最終更新：<time datetime="2020-03-02T05:39:47.288Z" itemprop="dateUpdated">2020-03-02 13:39:47</time>
 </span><br>
 
 
@@ -345,7 +346,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/03/02/iPhone-5s降级iOS-10-3-3简要备忘/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">iPhone 5s降级iOS 10.3.3简要备忘</h4>
+      </a>
+    </div>
   
 
   
@@ -405,7 +413,7 @@
         </p>
     </div>
     <div class="bottom">
-        <p><span>LouGaZen &copy; 2018 - 2019</span>
+        <p><span>LouGaZen &copy; 2018 - 2020</span>
             <span>
                 
                 Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
