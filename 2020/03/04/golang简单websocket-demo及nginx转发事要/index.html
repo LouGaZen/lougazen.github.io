@@ -27,7 +27,7 @@
 <meta property="og:url" content="http://lougazen.github.io/2020/03/04/golang简单websocket-demo及nginx转发事要/index.html">
 <meta property="og:site_name" content="Apocalypse">
 <meta property="og:description" content="序最近一个项目上用到消息推送功能，boss说写个简单的ws让前端自行处理消息就好（前端：MMP）。看到网上用到比较多的框架是gorilla/websocket，但是要验证第三方包的稳定性还是需要一定时间，还是用官方的websocket包吧（又不是不能用.jpg）。思路其实很简单，一端接收到消息之后直接推入一个channel。另启一个协程去接收这个channel的消息，然后广播到所有ws连接。 C">
-<meta property="og:locale" content="default">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2020-03-04T12:44:39.205Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="golang简单websocket demo及nginx转发事要">
@@ -118,7 +118,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -191,7 +191,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2020-03-04T12:44:39.205Z" itemprop="dateUpdated">2020-03-04 20:44:39</time>
+    最后更新时间：<time datetime="2020-03-04T12:44:39.205Z" itemprop="dateUpdated">2020-03-04 20:44:39</time>
 </span><br>
 
 
@@ -277,7 +277,7 @@
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">
