@@ -144,6 +144,47 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-gorm-v2升级备忘" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2021-03-25 11:01:33" datetime="2021-03-25T03:01:33.000Z" itemprop="datePublished">2021-03-25</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2021/03/25/gorm-v2升级备忘/">gorm.v2升级备忘</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        序GORM v2发布半年有余，因为有太多破坏性变更，目前现有的项目都不敢贸贸然进行升级。恰逢最近新启动一个小项目，遂打算是用新版的gorm，为以后的升级提供一些参考。
+变更外键v1版在处理关联对象时默认不会创建外键，创建外键需要显式在tag里声明。
+升级后的v2默认会给关联的对象创建外键。如果需要跟v1保持一致，需要手动配置
+123db, err := gorm.Open(mysql.Ope...
+    
+
+        <a href="/2021/03/25/gorm-v2升级备忘/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-记一次kubernetes节点内存占用过高问题排查" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">

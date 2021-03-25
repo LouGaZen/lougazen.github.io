@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lougazen.github.io/"/>
-  <updated>2021-03-08T09:37:54.906Z</updated>
+  <updated>2021-03-25T07:33:03.008Z</updated>
   <id>http://lougazen.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>gorm.v2升级备忘</title>
+    <link href="http://lougazen.github.io/2021/03/25/gorm-v2%E5%8D%87%E7%BA%A7%E5%A4%87%E5%BF%98/"/>
+    <id>http://lougazen.github.io/2021/03/25/gorm-v2升级备忘/</id>
+    <published>2021-03-25T03:01:33.000Z</published>
+    <updated>2021-03-25T07:33:03.008Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p><a href="https://gorm.io/zh_CN/" target="_blank" rel="noopener">GORM v2</a>发布半年有余，因为有太多破坏性变更，目前现有的项目都不敢贸贸然进行升级。恰逢最近新启动一个小项目，遂打算是用新版的gorm，为以后的升级提供一些参考。</p><h2 id="变更"><a href="#变更" class="headerlink" title="变更"></a>变更</h2><h3 id="外键"><a href="#外键" class="headerlink" title="外键"></a>外键</h3><p>v1版在处理关联对象时默认不会创建外键，创建外键需要显式在tag里声明。</p><p>升级后的v2默认会给关联的对象创建外键。如果需要跟v1保持一致，需要手动配置</p><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db, err := gorm.Open(mysql.Open(dsn), &amp;gorm.Config&#123;</span><br><span class="line">DisableForeignKeyConstraintWhenMigrating: <span class="literal">true</span>,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><h3 id="datetime精度"><a href="#datetime精度" class="headerlink" title="datetime精度"></a>datetime精度</h3><p>v1版datetime精度默认是0（秒），v2版默认是3（毫秒），配置方式：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db, err = gorm.Open(mysql.New(mysql.Config&#123;</span><br><span class="line">DSN: dsn,</span><br><span class="line">DisableDatetimePrecision: true,</span><br><span class="line">&#125;), nil)</span><br></pre></td></tr></table></figure><p>因为我使用的时间戳是是13位，所以这里没跟v1保持一致</p><h3 id="sql连接池"><a href="#sql连接池" class="headerlink" title="sql连接池"></a>sql连接池</h3><p>v1版的sql连接池可以直接通过<code>db.DB()</code>方法直接获取，v2则同时会返回一个err，需要单独处理</p><h3 id="log输出"><a href="#log输出" class="headerlink" title="log输出"></a>log输出</h3><p>v1版可以通过<code>db.LogMode(true)</code>在日志里输出每一条sql语句，v2里没有了这个方法，取而代之的是根据log level进行输出</p><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db, err := gorm.Open(mysql.Open(dsn), &amp;gorm.Config&#123;</span><br><span class="line">Logger: logger.Default.LogMode(logger.Info),</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><p>或</p><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db, err := gorm.Open(mysql.Open(dsn), <span class="literal">nil</span>)</span><br><span class="line">db = db.Debug()</span><br></pre></td></tr></table></figure><p>使用下来发现日志详细程度会比v1更高</p><h2 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h2><blockquote><p><a href="https://gorm.io/zh_CN/docs/v2_release_note.html" target="_blank" rel="noopener">GORM 2.0 发布说明</a></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;序&quot;&gt;&lt;a href=&quot;#序&quot; class=&quot;headerlink&quot; title=&quot;序&quot;&gt;&lt;/a&gt;序&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://gorm.io/zh_CN/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GORM v2&lt;/a
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>记一次kubernetes节点内存占用过高问题排查</title>
