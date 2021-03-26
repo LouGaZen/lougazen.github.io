@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="Apocalypse">
 <meta property="og:description" content="序GORM v2发布半年有余，因为有太多破坏性变更，目前现有的项目都不敢贸贸然进行升级。恰逢最近新启动一个小项目，遂打算是用新版的gorm，为以后的升级提供一些参考。 变更外键v1版在处理关联对象时默认不会创建外键，创建外键需要显式在tag里声明。 升级后的v2默认会给关联的对象创建外键。如果需要跟v1保持一致，需要手动配置 123db, err := gorm.Open(mysql.Open(d">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-03-25T07:33:03.008Z">
+<meta property="og:updated_time" content="2021-03-26T08:58:19.429Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="gorm.v2升级备忘">
 <meta name="twitter:description" content="序GORM v2发布半年有余，因为有太多破坏性变更，目前现有的项目都不敢贸贸然进行升级。恰逢最近新启动一个小项目，遂打算是用新版的gorm，为以后的升级提供一些参考。 变更外键v1版在处理关联对象时默认不会创建外键，创建外键需要显式在tag里声明。 升级后的v2默认会给关联的对象创建外键。如果需要跟v1保持一致，需要手动配置 123db, err := gorm.Open(mysql.Open(d">
@@ -153,7 +153,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#序"><span class="post-toc-number">1.</span> <span class="post-toc-text">序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#变更"><span class="post-toc-number">2.</span> <span class="post-toc-text">变更</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#外键"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">外键</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#datetime精度"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">datetime精度</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#sql连接池"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">sql连接池</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#log输出"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">log输出</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#鸣谢"><span class="post-toc-number">3.</span> <span class="post-toc-text">鸣谢</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#序"><span class="post-toc-number">1.</span> <span class="post-toc-text">序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#变更"><span class="post-toc-number">2.</span> <span class="post-toc-text">变更</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#外键"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">外键</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#datetime精度"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">datetime精度</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#sql连接池"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">sql连接池</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#log输出"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">log输出</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RecordNotFound"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">RecordNotFound</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#鸣谢"><span class="post-toc-number">3.</span> <span class="post-toc-text">鸣谢</span></a></li></ol>
         </nav>
     </aside>
 
@@ -189,6 +189,7 @@
 <p>或</p>
 <figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db, err := gorm.Open(mysql.Open(dsn), <span class="literal">nil</span>)</span><br><span class="line">db = db.Debug()</span><br></pre></td></tr></table></figure>
 <p>使用下来发现日志详细程度会比v1更高</p>
+<h3 id="RecordNotFound"><a href="#RecordNotFound" class="headerlink" title="RecordNotFound"></a>RecordNotFound</h3><p>v1版自带<code>gorm.IsErrRecordNotFound(err)</code>方法判断，升级v2后不再提供这个方法，需要改成<code>errors.Is(err, gorm.ErrRecordNotFound)</code></p>
 <h2 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h2><blockquote>
 <p><a href="https://gorm.io/zh_CN/docs/v2_release_note.html" target="_blank" rel="noopener">GORM 2.0 发布说明</a></p>
 </blockquote>
@@ -200,7 +201,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2021-03-25T07:33:03.008Z" itemprop="dateUpdated">2021-03-25 15:33:03</time>
+    最后更新时间：<time datetime="2021-03-26T08:58:19.429Z" itemprop="dateUpdated">2021-03-26 16:58:19</time>
 </span><br>
 
 
